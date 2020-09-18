@@ -6,7 +6,12 @@ class SessionsController < ApplicationController
       user = User.find_by(email: params[:session][:email].downcase)
       if user                                                              
         log_in user
-        redirect_back_or user
+        respond_to do |format|
+          format.html { redirect_to events_url, notice: 'Successful Sign In' }
+          format.json { head :no_content }
+        end
+        # flash.now[:notice] = 'Successful Sign In'
+        # redirect_back_or user
       else
         flash.now[:danger] = 'Invalid email/username combination'
         render 'new'
