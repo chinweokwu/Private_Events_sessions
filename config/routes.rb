@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :users
   resources :events
+  resources :event_attendees, only: %i[create destroy]
   root 'home#index'
 end
