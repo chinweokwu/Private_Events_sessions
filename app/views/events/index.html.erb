@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events (<%= @future_events.count + @past_events.count%>)</h1>
+<h1>Events (<%= @future_events.count + @past_events.count %>)</h1>
 
 <table>
   <thead>
@@ -26,10 +26,10 @@
       </tr>
     <% end %>
     <% end %>
-  </tbody>
+ 
 
   <h2> Past Events (<%= @past_events.count if @past_events.present? %>)</h2>
-  <tbody>
+ 
   <% if @past_events.present? %>
     <% @past_events.each do |event| %>
       <tr>
