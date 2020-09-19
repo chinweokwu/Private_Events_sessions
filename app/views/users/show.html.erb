@@ -13,7 +13,7 @@
 <%= link_to 'Edit', edit_user_path(@user) %>
 <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> 
 <br/>
-
+<br/>
 <h3> EVENTS CREATED</h3>
   <% @user.created_events.each do |event| %>
     <ul>
@@ -22,15 +22,25 @@
     <li> <em><%= event.created_at.strftime('%b. %d, %Y') %></em></li>
     </ul>
     <% end %>
-
+<br/>
 <h3> UPCOMING ATTENDING EVENTS</h3>
 <% current_user.attended_events.each do |event| %>
+  <% if event.date > Date.today %>
   <ul>
   <li><%= event.name %> </li>
   <li><%= event.date %> </li>
   </ul>
   <% end %>
-  
+  <% end %>
+<br/>
 <h3> PAST ATTENDED EVENTS</h3>
+<% current_user.attended_events.each do |event| %>
+  <% if event.date < Date.today %>
+  <ul>
+  <li><%= event.name %> </li>
+  <li><%= event.date %> </li>
+  </ul>
+  <% end %>
+  <% end %>
 
   <%#= link_to 'Back', users_path %>
