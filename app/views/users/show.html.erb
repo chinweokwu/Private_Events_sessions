@@ -12,4 +12,25 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %>
 <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> 
-<%#= link_to 'Back', users_path %>
+<br/>
+
+<h3> EVENTS CREATED</h3>
+  <% @user.created_events.each do |event| %>
+    <ul>
+    <li><%= event.name %> </li>
+    <li><%= event.date %> </li>
+    <li> <em><%= event.created_at.strftime('%b. %d, %Y') %></em></li>
+    </ul>
+    <% end %>
+
+<h3> UPCOMING ATTENDING EVENTS</h3>
+<% current_user.attended_events.each do |event| %>
+  <ul>
+  <li><%= event.name %> </li>
+  <li><%= event.date %> </li>
+  </ul>
+  <% end %>
+  
+<h3> PAST ATTENDED EVENTS</h3>
+
+  <%#= link_to 'Back', users_path %>

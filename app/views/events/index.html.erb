@@ -12,7 +12,7 @@
   </thead>
 <h2>Upcoming events (<%= @future_events.count if @future_events.present? %>)</h2>
   <tbody>
-  <% if @future_events..present? %>
+  <% if @future_events.present? %>
     <% @future_events.each do |event|%>
       <tr>
         <td><%= event.name %></td>
