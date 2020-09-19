@@ -5,7 +5,6 @@ class User < ApplicationRecord
   has_many :event_attendees, foreign_key: :attendee_id
   has_many :attended_events, through: :event_attendees
 
-
   EMAIL_FORMAT_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, format: { with: EMAIL_FORMAT_REGEX }, uniqueness: true

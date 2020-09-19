@@ -4,10 +4,10 @@ class Event < ApplicationRecord
   has_many :event_attendees, foreign_key: :attended_event_id
   has_many :attendees,	through: :event_attendees
 
-
   validates :name, presence: true
   validates :location, presence: true
   validates :description, presence: true
+  validates :date, presence: true
 
   scope :future_events, -> { where('date >= ?', Time.now) }
   scope :past_events, -> { where('date < ?', Time.now) }

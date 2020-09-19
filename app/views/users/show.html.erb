@@ -23,7 +23,7 @@
     </ul>
     <% end %>
 <br/>
-<h3> UPCOMING ATTENDING EVENTS</h3>
+<h3> UPCOMING ATTENDING EVENTS </h3>
 <% current_user.attended_events.each do |event| %>
   <% if event.date > Date.today %>
   <ul>
