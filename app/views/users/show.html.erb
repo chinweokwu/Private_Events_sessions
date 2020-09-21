@@ -24,23 +24,21 @@
     <% end %>
 <br/>
 <h3> UPCOMING ATTENDING EVENTS </h3>
-<% current_user.attended_events.each do |event| %>
-  <% if event.date > Date.today %>
+<% current_user.attended_events.future_events.each do |event| %>
   <ul>
   <li><%= event.name %> </li>
   <li><%= event.date %> </li>
   </ul>
-  <% end %>
   <% end %>
 <br/>
 <h3> PAST ATTENDED EVENTS</h3>
-<% current_user.attended_events.each do |event| %>
-  <% if event.date < Date.today %>
+<% current_user.attended_events.past_events.each do |event| %>
+
   <ul>
   <li><%= event.name %> </li>
   <li><%= event.date %> </li>
   </ul>
   <% end %>
-  <% end %>
+
 
   <%#= link_to 'Back', users_path %>
