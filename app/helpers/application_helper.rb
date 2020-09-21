@@ -1,4 +1,5 @@
 # :nodoc:
+# rubocop:disable Style/GuardClause
 module ApplicationHelper
   def user_allowed
     logged_in? && (current_user.id == @event.creator_id)
@@ -33,3 +34,4 @@ module ApplicationHelper
     end
   end
 end
+# rubocop:enable Style/GuardClause

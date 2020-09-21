@@ -1,4 +1,5 @@
 # :nodoc:
+# rubocop:disable Style/GuardClause
 class ApplicationController < ActionController::Base
   include SessionsHelper
 
@@ -12,3 +13,4 @@ class ApplicationController < ActionController::Base
     end
   end
 end
+# rubocop:enable Style/GuardClause
