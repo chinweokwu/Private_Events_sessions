@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def show_user
-    if user_allowed # rubocop:todo Style/GuardClause
+    if user_allowed
       (link_to 'Edit', edit_event_path(@event)) +
         (link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' })
     end
