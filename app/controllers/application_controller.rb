@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def logged_in_user
-    unless logged_in?
+    unless logged_in? # rubocop:todo Style/GuardClause
       store_location
       flash[:danger] = 'Please log in.'
       redirect_to login_url
