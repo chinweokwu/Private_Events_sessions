@@ -6,8 +6,8 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-    @future_events = Event.future_events
-    @past_events = Event.past_events
+    @future_events = Event.future_events.paginate(page: params[:page], per_page: 3)
+    @past_events = Event.past_events.paginate(page: params[:page], per_page: 3)
   end
 
   # GET /events/1

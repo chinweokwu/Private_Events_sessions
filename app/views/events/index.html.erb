@@ -1,46 +1,45 @@
 <p id="notice"><%= notice %></p>
-<h1>Events (<%= @future_events.count + @past_events.count if  @future_events..present? || @past_events.present?%>)</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Location</th>
-      <th>Description</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-<h2>Upcoming events (<%= @future_events.count if @future_events.present? %>)</h2>
-  <tbody>
+<h1 class= "text-center">Events (<%= @future_events.count + @past_events.count if  @future_events..present? || @past_events.present?%>)</h1>
+<h2 class = "text-success">Upcoming events (<%= @future_events.count if @future_events.present? %>)</h2>
+
+<div class="container-fluid">
+  <div class="row">
   <% if @future_events.present? %>
     <% @future_events.each do |event|%>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.location %></td>
-        <td><%= event.description %></td>
-        <td><%= event.date %></td>
-        <td><%= link_to 'Show', event %></td>
-      </tr>
+    <div class="card border-success mx-3">
+      <strong class="card-title"> <%= event.name %></strong>
+      <p class="card-text"><%= event.location %></p>
+      <p class="card-text"><%= event.description %></p>
+      <em class="card-text"></p><%= event.date %></em>
+      <%= link_to 'Show', event, class: "text-success"%>
+   </div>
     <% end %>
-    <% end %>
-  </tbody>
-</table>
-<h2>Previous events (<%= @past_events.count if @past_events.present? %>)</h2>
-<table>
-  <tbody>
+  <% end %>
+  </div>
+</div>
+
+
+<h3 class= "text-danger">Previous events (<%= @past_events.count if @past_events.present? %>)</h3>
+<div class="container-fluid">
+  <div class="row">
   <% if @past_events.present? %>
     <% @past_events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.location %></td>
-        <td><%= event.description %></td>
-        <td><%= event.date %></td>
-         <td><%= link_to 'Show', event %></td>
-     </tr>
+    <div class="card border-danger mx-3 text-secondary">
+      <strong class="card-title"> <%= event.name %></strong>
+      <p class="card-text"><%= event.location %></p>
+      <p class="card-text"><%= event.description %></p>
+      <em class="card-text"></p><%= event.date %></em>
+      <%= link_to 'Show', event, class: "text-danger" %>
+   </div>
     <% end %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+      <%= will_paginate @future_events%>
+    </div>
+  </div>
+</div>
 <br>
 
 <%#= link_to 'New Event', new_event_path %>
