@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
-<h1 class= "text-center">Events (<%= @future_events.count + @past_events.count if  @future_events..present? || @past_events.present?%>)</h1>
-<h2 class = "text-success">Upcoming events (<%= @future_events.count if @future_events.present? %>)</h2>
+<h1 class= "ml-5">Events (<%= @future_events.count + @past_events.count if  @future_events..present? || @past_events.present?%>)</h1>
+<h2 class = "text-success text-center">Upcoming events (<%= @future_events.count if @future_events.present? %>)</h2>
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container">
+  <div class="row mx-auto">
   <% if @future_events.present? %>
     <% @future_events.each do |event|%>
-    <div class="card border-success mx-3">
+    <div class="card border-success mx-4 col-lg-3 col-md-6 col-12">
       <strong class="card-title"> <%= event.name %></strong>
       <p class="card-text"><%= event.location %></p>
       <p class="card-text"><%= event.description %></p>
@@ -19,12 +19,12 @@
 </div>
 
 
-<h3 class= "text-danger">Previous events (<%= @past_events.count if @past_events.present? %>)</h3>
-<div class="container-fluid">
-  <div class="row">
+<h3 class= "text-danger text-center">Previous events (<%= @past_events.count if @past_events.present? %>)</h3>
+<div class="container">
+  <div class="row mx-auto">
   <% if @past_events.present? %>
     <% @past_events.each do |event| %>
-    <div class="card border-danger mx-3 text-secondary">
+    <div class="card border-danger mx-4 text-secondary col-lg-3 col-md-6 col-12"> 
       <strong class="card-title"> <%= event.name %></strong>
       <p class="card-text"><%= event.location %></p>
       <p class="card-text"><%= event.description %></p>
