@@ -7,7 +7,7 @@ AllCops:
     - "Rakefile"
     - "node_modules/**/*"
 
-  DisplayCopNames: false
+  DisplayCopNames: true
 
 Layout/LineLength:
   Max: 120
@@ -28,32 +28,32 @@ Metrics/BlockLength:
   Max: 30
 
 Style/Documentation:
-  Enabled: false
+  Enabled: true
 Style/ClassAndModuleChildren:
-  Enabled: false
+  Enabled: true
 Style/EachForSimpleLoop:
-  Enabled: false
+  Enabled: true
 Style/AndOr:
-  Enabled: false
+  Enabled: true
 Style/DefWithParentheses:
-  Enabled: false
+  Enabled: true
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
 
 Layout/HashAlignment:
   EnforcedColonStyle: key
 Layout/ExtraSpacing:
-  AllowForAlignment: false
+  AllowForAlignment: true
 Layout/MultilineMethodCallIndentation:
-  Enabled: false
+  Enabled: true
   EnforcedStyle: indented
 Lint/RaiseException:
-  Enabled: false
+  Enabled: true
 Lint/StructNewOverride:
-  Enabled: false
+  Enabled: true
 Style/HashEachMethods:
-  Enabled: false
+  Enabled: true
 Style/HashTransformKeys:
-  Enabled: false
+  Enabled: true
 Style/HashTransformValues:
-  Enabled: false
+  Enabled: true
