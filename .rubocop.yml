@@ -57,8 +57,7 @@ Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
-
-NewCops: enable
+  
 Layout/BeginEndAlignment: # (new in 0.91)
   Enabled: true
 Layout/EmptyLinesAroundAttributeAccessor: # (new in 0.83)
