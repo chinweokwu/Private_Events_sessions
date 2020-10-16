@@ -17,14 +17,14 @@
         <div class="navbar-header">
           <%= link_to "Private Events", root_path, class: "mx-2 text-primary" %>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
           <span><i class="fas fa-bars"></i></span> 
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <% if logged_in? %>
             <ul class="nav navbar-right ">
               <li><%= link_to 'All Events', events_path , class:"navbar-item mr-2" %></li>
-              <li><%= link_to 'Create New Event', new_event_path, class:"navbar-item mr-2" %></li>
+              <li><%= link_to 'Create Event', new_event_path, class:"navbar-item mr-2" %></li>
               <li><%= link_to current_user.username, user_path(User.find(session[:user_id])), class:"navbar-item" %></li>
               <li><%= link_to "Log out", logout_path, class: "mx-2", method: :delete %></li> 
             </ul>
