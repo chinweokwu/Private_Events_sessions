@@ -11,11 +11,10 @@ to create events and then manage user signups.
 - A user can see the list with upcoming and past events
 - Each event has many attendees
 
-![screenshot](./1Screenshot.png)
-![screenshot](./2Screenshot.png)
-![screenshot](./3Screenshot.png)
-![screenshot](./4Screenshot.png)
-![screenshot](./5Screenshot.png)
+![screenshot](./home.png)
+![screenshot](./all-page.png)
+![screenshot](./profile.png)
+![screenshot](./create-event.png)
 
 ### Installation
 You need to have this tools to start using it:
