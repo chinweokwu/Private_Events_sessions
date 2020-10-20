@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   get    '/login',   to: 'sessions#new'
@@ -5,5 +7,6 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :users
   resources :events
-  root "home#index"
+  resources :event_attendees, only: %i[create destroy]
+  root 'home#index'
 end

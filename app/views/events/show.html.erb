@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+<div class="row pt-5">
+<div class="col-lg-3 col-sm-1">
+</div>
+<div class="event-card col-lg-6 col-sm-10 align-items-start">
 
 <p>
   <strong>Name:</strong>
@@ -20,5 +25,19 @@
   <%= @event.date %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
+
+<strong>Attendees</strong>
+<br>
+<%= render 'attendee_list' %>
+
+<%= render 'attend'%>
+<%= show_user %>
 <%= link_to 'Back', events_path %>
+</div>
+
+<%#= link_to 'Edit', edit_event_path(@event) %> 
+<%#= link_to 'Back', events_path %>
+<div class="col-lg-3 col-sm-1">
+</div>
+</div>
+</div>

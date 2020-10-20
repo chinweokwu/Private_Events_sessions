@@ -7,32 +7,38 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/03774beff9.js" crossorigin="anonymous"></script>
     </head>
 
   <body>
-  
-  <nav class="navbar mb-2">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <%= link_to "Private Events", root_path, class: "mx-2 text-primary" %>
+    <div class="container">
+    <div class="head my-3">
+      <nav class="navbar navbar-expand-lg navbar-light head_custom-nav">
+        <div class="navbar-header">
+          <%= link_to "Private Events", root_path, class: "mx-2 text-primary" %>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+          <span><i class="fas fa-bars"></i></span> 
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <% if logged_in? %>
+            <ul class="nav navbar-right ">
+              <li><%= link_to 'All Events', events_path , class:"navbar-item mr-2" %></li>
+              <li><%= link_to 'Create Event', new_event_path, class:"navbar-item mr-2" %></li>
+              <li><%= link_to current_user.username, user_path(User.find(session[:user_id])), class:"navbar-item" %></li>
+              <li><%= link_to "Log out", logout_path, class: "mx-2", method: :delete %></li> 
+            </ul>
+          <% else %>
+            <ul class= "nav navbar-right">
+            <li><%#= link_to 'All Events', events_path , class:"navbar-item mr-2" #%></li>
+            <li><%= link_to "Log in", login_path, class: "mx-2" %></li> 
+            <li><%= link_to "Sign up", signup_path, class: "mx-2" %></li>
+            </ul>
+          <% end %>      
+         </div>
+      </nav>
     </div>
-    <% if logged_in? %>
-      <ul class="nav navbar-right ">
-      <li><%= link_to 'All Events', events_path , class:"navbar-item mr-2" %></li>
-      <li><%= link_to current_user.username, user_path(User.find(session[:user_id])), class:"navbar-item" %></li>
-        <li><%= link_to "Log out", logout_path, class: "mx-2", method: :delete %></li> 
-      </ul>
-    <% else %>
-      <ul class="nav navbar-right ">
-      <li><%= link_to 'All Events', events_path , class:"navbar-item mr-2" %></li>
-        <li><%= link_to "Log in", login_path, class: "mx-2" %></li> 
-        <li><%= link_to "Sign up", signup_path, class: "mx-2" %></li>
-      </ul>
-    <% end %>
-  </div>
-</nav>
-
+    </div>
     <%= yield %>
   </body>
 </html>

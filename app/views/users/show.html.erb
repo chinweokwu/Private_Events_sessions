@@ -1,14 +1,64 @@
 <p id="notice"><%= notice %></p>
+<div class="container"></div>
+<div class="jumbotron jumbotron-fluid text-center">
+  <div class="container">
+    <h1 class="display-4"><%= @user.username %></h1>
+    <p class="lead"> <%= @user.email %></p>
+    <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %>
+    <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> 
+  </div>
+</div>
+</div>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<h3 class="text-center text-success"> EVENTS CREATED</h3>
 
-<%= link_to 'Edit', edit_user_path(@user) %> 
-<%#= link_to 'Back', users_path %>
+<div class="container">
+  <div class="row mx-auto">
+  <% @user.created_events.each do |event| %>
+  <div class="card border-success mx-4 col-lg-3 col-md-6 col-12">
+    <strong class="card-title"> <%= event.name %></strong>
+    <p class="card-text"><%= event.location %></p>
+    <p class="card-text"><%= event.description %></p>
+    <em class="card-text"></p><%= event.date %></em>
+    <%= link_to 'Show', event, class: "text-success"%>
+    <em>created: <%= event.created_at.strftime('%b. %d, %Y') %></em>
+ </div>
+    <% end %>
+  </div>
+  </div>
+<br/>
+
+<h3 class="text-center text-primary"> UPCOMING ATTENDING EVENTS </h3>
+<div class="container">
+  <div class="row mx-auto">
+<% current_user.attended_events.future_events.each do |event| %>
+<div class="card border-primary mx-4 col-lg-3 col-md-6 col-12">
+  <strong class="card-title"> <%= event.name %></strong>
+  <p class="card-text"><%= event.location %></p>
+  <p class="card-text"><%= event.description %></p>
+  <em class="card-text"></p><%= event.date %></em>
+  <%= link_to 'Show', event, class: "text-primary"%>
+  <em>created: <%= event.created_at.strftime('%b. %d, %Y') %></em>
+</div>
+  <% end %>
+</div>
+</div>
+<br/>
+
+
+<h3 class= "text-danger text-center"> PAST ATTENDED EVENTS</h3>
+<div class="container">
+  <div class="row mx-auto">
+<% current_user.attended_events.past_events.each do |event| %>
+<div class="card border-danger mx-4 col-lg-3 col-md-6 col-12">
+  <strong class="card-title"> <%= event.name %></strong>
+  <p class="card-text text-secondary"><%= event.location %></p>
+  <p class="card-text text-secondary"><%= event.description %></p>
+  <em class="card-text text-secondary"></p><%= event.date %></em>
+  <%= link_to 'Show', event, class: "text-danger"%>
+</div>
+  <% end %>
+</div>
+</div>
+  <%#= link_to 'Back', users_path %>

@@ -9,7 +9,110 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
  */
+
+@import "bootstrap";
+@import url("//fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;0,700;1,400&display=swap");
+
+.head_custom-nav {
+  text-decoration: none;
+
+  .navbar-header {
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    color: black;
+
+    &:hover a:link {
+      text-decoration: none;
+    }
+  }
+
+  #navbarNav {
+    font-family: 'Poppins', sans-serif;
+
+    ul {
+      li {
+        color: #000;
+        font-weight: 400;
+        padding: 8px 15px;
+        white-space: nowrap;
+        transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        text-decoration: none;
+
+        &:hover a:link {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.card {
+  float: left;
+  padding: 0.75rem;
+  margin-bottom: 2rem;
+  border-radius: 5%;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+  .card-text {
+    font-size: 85%;
+  }
+
+  footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  footer p {
+    margin-bottom: 0.25rem;
+  }
+}
+
+.custom-section {
+  width: inherit;
+  padding: 40px 0;
+  font-family: 'Poppins', sans-serif;
+
+  @media screen and (max-width: 991.98px) {
+    flex-direction: column-reverse;
+  }
+
+  .col-lg-4 {
+    margin-top: 30px;
+
+    h2 {
+      font-size: 40px;
+      color: #000;
+      margin-bottom: 0;
+      line-height: 1;
+    }
+
+    p {
+      color: #000;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+  }
+}
+
+.img_tag {
+  width: 100%;
+  position: absolute;
+  top: -25rem;
+  right: -60%;
+
+  @media screen and (max-width: 991.98px) {
+    width: 100%;
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+}
+
+.event-card {
+  padding: 5%;
+  border: 5px solid lightblue;
+  border-radius: 5%;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
